@@ -24,7 +24,7 @@ function [lower_t, diagonal, upper_t] = get_l_d_u(A)
         error("ZERO IN LAST PIVOT")
     end
     for i = 1:sz(1)
-        diagonal(i,i) = upper_t(i,i)
-        upper_t(i,:) /= diagonal(i,i)
+        diagonal(i,i) = upper_t(i,i);
+        upper_t(i,:) /= diagonal(i,i);
     end
 end
