@@ -11,8 +11,15 @@ function t = test_factorize(A)
     [l,d,u] = get_l_d_u(A);
     if (norm(l * d * u - A) < 1e-4)
         printf("A=LDU Test Passed!\n")
+        sz = size(A);
+        for i = 1:sz(1)
+            if (u(i,i) != 1)
+                printf("A=LDU Test Failed! (non-one in U pivot)\n")
+                break;
+            end
+        end
     else
-        printf("A=LDU Test Failed!\n")
+        printf("A=LDU Test Failed! (wrong answer)\n")
         l
         d
         u
